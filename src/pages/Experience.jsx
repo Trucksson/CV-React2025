@@ -1,46 +1,86 @@
-// src/pages/Experience.jsx
+import { useEffect, useState } from "react";
+
 export default function Experience() {
+  const [experience, setExperience] = useState([]);
+  const [githubProjects, setGithubProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Hämtar lokal JSON-data
+    fetch("/data/CVHenric.json")
+      .then((res) => res.json())
+      .then((data) => setExperience(data.experience));
+
+    // Hämtar publika GitHub-projekt
+    fetch("https://api.github.com/users/Trucksson/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        const publicRepos = data
+          .filter((repo) => !repo.private)
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        setGithubProjects(publicRepos.slice(0, 8)); // Visa bara 8 projekt
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fel vid hämtning av GitHub-repo:", error);
+        setLoading(false);
+      });
+  }, []);
+
   return (
-    <main className="experience-container">
-      <h1>My Experience</h1>
-
-      <div className="experience-content">
-
-        <div className="experience-box">
-          <h2>Projects</h2>
-          <div className="project-images">
-
-            {/* Projekt 1: Bank */}
-            <div className="project-wrapper">
-              <div className="project-card">
-                <a href="https://github.com/DavidAndersson6/Grupparbete-Bank" target="_blank" rel="noopener noreferrer">
-                  <img src="Pictures/FlameLogo.avif" alt="Bank Project" className="experience-image" />
+    <main>
+      <section className="experience-container">
+        <h1>My Experience</h1>
+        <div className="experience-content">
+          {experience.map((item, index) => (
+            <div className="experience-box" key={index}>
+              <h2>{item.company}</h2>
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.company}
+                  className="experience-image"
+                />
+              )}
+              <p>{item.role}</p>
+              <p>
+                <em>{item.year}</em>
+              </p>
+              {item.github && (
+                <a
+                  href={item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="open-modal-btn"
+                >
+                  View on GitHub
                 </a>
-                <p>Bankprojekt</p>
-              </div>
+              )}
             </div>
+          ))}
+        </div>
 
-            {/* Projekt 2: Schack */}
-            <div className="project-wrapper">
-              <div className="project-card">
-                <a href="https://github.com/Trucksson/ChessBoard" target="_blank" rel="noopener noreferrer">
-                  <img src="Pictures/ChessboardLogo.png" alt="Chess Project" className="experience-image" />
+        <h2 style={{ marginTop: "50px" }}>GitHub Projects</h2>
+        {loading ? (
+          <p>Laddar projekt...</p>
+        ) : (
+          <div className="github-projects">
+            {githubProjects.map((project) => (
+              <div key={project.id} className="github-project-card">
+                <h3>{project.name}</h3>
+                <p>{project.description || "Ingen beskrivning tillgänglig."}</p>
+                <a
+                  href={project.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Besök på GitHub →
                 </a>
-                <p>Schackbräde</p>
               </div>
-            </div>
-
+            ))}
           </div>
-        </div>
-
-        <div className="experience-box">
-          <h2>CV Information</h2>
-          <p>
-            Hej, mitt namn är Henric Kurtsson. Jag har väldigt god erfarenhet inom lager och logistik och har arbetat på företag såsom AlfaLaval, KH Maskin och Din Bil.
-            Jag har jobbat med affärs- och IT-system som SAP, Automaster och Microsoft D365. Jag har både körkort och truckkort och studerar nu heltid till systemutvecklare inom .NET.
-          </p>
-        </div>
-      </div>
+        )}
+      </section>
     </main>
   );
 }
