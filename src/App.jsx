@@ -1,7 +1,7 @@
 // src/App.jsx
 
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/navbar';
+import Navbar from './components/Navmenu';
 
 import Home from './pages/Home';
 import About from './pages/About';

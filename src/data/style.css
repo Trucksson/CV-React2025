@@ -1,31 +1,5 @@
-
 /* Imporetar google font i detta fall Revalia på Home sidan */
 @import url('https://fonts.googleapis.com/css2?family=Revalia&display=swap');
-
-/* */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  background-image: url('Pictures/Desertsunset.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-/* Detta gör att root fyller ut sidan korrekt även om den gjorde det innan */
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
 
 .home-heading {
     font-family: 'Revalia', sans-serif;
@@ -53,7 +27,7 @@ nav ul {
     flex-wrap: wrap; /* Gör att menyn kan radbrytas*/
 }
 
-nav ul li { /*Nu jävlar*/
+nav ul li {
     padding: 16px 20px;
     margin: 0 10px;
 }
@@ -425,8 +399,3 @@ img {
         line-height: 1.6;
         text-align: center;
       }
-      nav {
-  width: 100%;
-  background-color: rgb(73, 63, 92); /* Bakgrundsfärgen ska ligga här också! */
-}
-
