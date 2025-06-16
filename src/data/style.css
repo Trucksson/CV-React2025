@@ -74,7 +74,7 @@ nav ul li a.active {
 
 /* BAKGRUNDSBILDEN */
 body {
-    background-image: url('Pictures/Desertsunset.png'); /* Öken bild importerad png */
+    background-image: url('/CV-React2025/Pictures/Desertsunset.png'); /* Öken bild importerad png */
     background-size: cover; /* Gör så att det täcker hela sidan */
     background-position: center; /* Centrerar */
     background-attachment: fixed;

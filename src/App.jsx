@@ -12,19 +12,20 @@ import NotFound from './pages/NotFound';
 import './data/style.css';
 
 function App() {
-  // Easter egg 1 – klick på emoji
+  const BASE = import.meta.env.BASE_URL;
+
+  // 🎸 Easter egg 1 – klick på emoji
   function handleEasterEggClick() {
     alert("Rock on! 🎸");
-    document.body.style.backgroundImage = "url('/Pictures/GameOver.jpg')";
+    document.body.style.backgroundImage = `url('${BASE}Pictures/GameOver.jpg')`;
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundAttachment = "fixed";
   }
 
-  // Easter egg 2 – tangentbordskod "1337"
+  // 🎯 Easter egg 2 – tangentbordskod "1337"
   useEffect(() => {
     let inputBuffer = "";
-
     const handleKeyDown = (event) => {
       inputBuffer += event.key;
       if (inputBuffer.length > 4) {
@@ -32,7 +33,7 @@ function App() {
       }
 
       if (inputBuffer.includes("1337")) {
-        document.body.style.backgroundImage = "url('/Pictures/PeterGriffin.jpg')";
+        document.body.style.backgroundImage = `url('${BASE}Pictures/PeterGriffin.jpg')`;
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundAttachment = "fixed";
@@ -57,7 +58,17 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* Easter egg emoji */}
+      {/* 🧪 TEST: Bild från public/Pictures */}
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <h2>Bildtest: FlameLogo</h2>
+        <img
+          src={`${BASE}Pictures/FlameLogo.avif`}
+          alt="FlameLogo"
+          style={{ width: "200px", border: "2px solid red" }}
+        />
+      </div>
+
+      {/* 🎸 Easter egg emoji */}
       <div
         id="easteregg2"
         onClick={handleEasterEggClick}
