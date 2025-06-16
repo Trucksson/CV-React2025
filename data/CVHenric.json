@@ -3,29 +3,29 @@
     {
       "title": "Education",
       "description": "Right now I'm studying to become a .NET Fullstack developer at Chas Academy in Stockholm and will complete my education next year. I have a High School diploma from Fredrika Bremer in Technology and Media Studies, as well as standalone courses in Web Development and Programming. I also have knowledge in many different warehouse systems such as Microsoft D365, Pyramid, SAP and others.",
-      "image": "/Pictures/chas-academy-emblem.png"
+      "image": "chas-academy-emblem.png"
     }
   ],
   "experience": [
     {
       "company": "Bank Project",
-      "role": "C# Console app \u2013 group project with transactions, currencies, etc.",
+      "role": "C# Console app – group project with transactions, currencies, etc.",
       "year": "2024",
-      "image": "/Pictures/FlameLogo.avif",
+      "image": "FlameLogo.avif",
       "github": "https://github.com/DavidAndersson6/Grupparbete-Bank"
     },
     {
       "company": "Chessboard Project",
       "role": "Simple C# console chessboard app",
       "year": "2024",
-      "image": "/Pictures/ChessboardLogo.png",
+      "image": "ChessboardLogo.png",
       "github": "https://github.com/Trucksson/ChessBoard"
     },
     {
-       "company": "Warehouse Work",
-  "role": "I have worked at diffrent logistic companies such as Din Bil, Alfa Laval, KH-Maskin and others and have experience in systems such as D365, Automaster And SAP",
-  "year": "2018–2024",
-  "image": "/Pictures/Warehouse.jpg"
+      "company": "Warehouse Work",
+      "role": "I have worked at diffrent logistic companies such as Din Bil, Alfa Laval, KH-Maskin and others and have experience in systems such as D365, Automaster And SAP",
+      "year": "2018–2024",
+      "image": "Warehouse.jpg"
     }
   ]
 }
