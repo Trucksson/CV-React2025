@@ -58,16 +58,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* 🧪 TEST: Bild från public/Pictures */}
-      <div style={{ padding: "2rem", textAlign: "center" }}>
-        <h2>Bildtest: FlameLogo</h2>
-        <img
-          src={`${BASE}Pictures/FlameLogo.avif`}
-          alt="FlameLogo"
-          style={{ width: "200px", border: "2px solid red" }}
-        />
-      </div>
-
+    
       {/* 🎸 Easter egg emoji */}
       <div
         id="easteregg2"

@@ -4,7 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>CV Portal</title>
+
+    <!-- Dynamisk bakgrund via BASE_URL -->
+    <script type="module">
+      const base = import.meta.env.BASE_URL;
+      document.documentElement.style.setProperty(
+        "--bg-url",
+        `url('${base}Pictures/Desertsunset.png')`
+      );
+    </script>
+
+    <style>
+      body {
+        background-image: var(--bg-url);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
